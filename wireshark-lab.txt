@@ -1,0 +1,29 @@
+A.
+
+I see traffic from both my internet Browser, my Spotify application which I have open, some activity labeled as Microsoft, and some other activity I cannot distinguish.
+
+It seems that my IP address is 132.161.243.121 and the address of the gaia.cs.umass.edu server is 128.119.245.12
+
+B.
+1.
+Both my browser and the server are running HTTP 1.1. I received a status code of 200 from the server.
+The alst time the file was modified was April 4th 2018 at 5:59:01 GMT, the time of this communication was 16:34:44 GMT so I assume this is correct. 
+
+2. 
+I do not have a "IF-MODIFIED-SINCE" line in my get request. 
+
+Yes. At the bottom of the report on wireshark, I get line based text data that describes the html code that was sent to my machine by the server. 
+
+I did have a "IF-MODIFIED-SINCE" line in my second request. The line asks the server if the content has been modified since the last time the server reported the content was modified (5:59:01 GMT).
+
+The server sent me a 304 code. It did not send me the html code. There was no indication any new data was sent to my machine by the server. My guess would be that the cache of my computer keeps data of all the content I visit.
+
+3.
+One GET request was sent to the server. Packet 1 in the trace sent the one GET request. The GET request only took 426 bytes so it fit in one TCP packet. It would seem the status code and number was found in the first packet, the reassembled TCP has them listed as the first line.
+
+4.
+My browser sent 3 GET requests. First one was for the lab url. Second one was for the pearson png which was promptly returned. Secong GET request was to request access to the cover jpg. The server returned a FOUND response, the third GET response was for the same jpg and returned the image.
+I could tell the images were downloaded serially because there is a sequence for one image being requested to be downloaded and then the second image being requested to be downloaded.
+
+5.
+My initial request was given a 401 Unauthorized code. An AUTHORIZATION field is included with the credentials in this format user:pass.

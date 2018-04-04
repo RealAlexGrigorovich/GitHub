@@ -1,0 +1,40 @@
+CH1 P7: 
+Processing delay + Queing Delay + Transmission delay + Propogation delay + Decoding time = Total time
+
+Assuming that to process an analog signal into bits and to then convert the bits back into a signal, the same 64 kbps process would need to be used. Therefore we can determine the Processing delay and decoding time by the same calculation: 
+
+56 bytes / 64000 bytes/sec = .000875 sec. Doubling this to account for both delays, we get .00175 seconds.
+
+To determine the Transmission delay, I used the following calculation:
+
+56 bytes / 2000000 bytes/sec = .000028 sec. 
+
+The problem did not specify how many packets have been sent through the transmission center, but because the upload speed is slower than the Transmission delay, I am assuming there is no Queing delay.
+
+Using the given information in the problem, we add .01 sec of propogation delay. Therefore:
+
+Total time = .00175 seconds + .000028 seconds + .01 seconds = .011778 seconds. 
+
+
+
+P12:
+The problem gives sizes of packets and transmission rate of the link, however it does not give a propogation delay, so I assume this delay is negligible for this problem. I have to determine the time it takes for these bytes in the que currently to be processed. The total bytes in the que are:
+
+1500 bytes * 4 + 750 bytes = 6750 bytes
+
+To determine queing delay: 
+
+6750 bytes / 2000000 bytes/sec = .003375 secs
+
+In general the formula for queing delay would be:
+
+(n * L - x) / R  according to the variable names given by the book. 
+
+
+
+P24:
+To gauge which option is superior, I must determine the time it would take for data to be transmitted via the link:
+
+(40 * 10 ^ 12) bytes / (100 * 10 ^ 6) bytes/sec = 400000 seconds / 3600 sec/hour = 111.111 hours.
+
+Because it will take more than 4 24 hour cycles to transmit this data electronically, it would be faster to send this data physically via overnight shipping. 
